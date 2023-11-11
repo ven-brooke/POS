@@ -1,3 +1,6 @@
+//using FirestoreApplication.Classes;
+//using FirestoreApplication.Forms;
+
 namespace POS
 {
     internal static class Program
@@ -10,6 +13,7 @@ namespace POS
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+            FirestoreHelper.SetEnvironmentVariable();
             ApplicationConfiguration.Initialize();
             Application.Run(new Registration());
         }

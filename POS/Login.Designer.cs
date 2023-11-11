@@ -32,17 +32,19 @@
             this.Rectangle1 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.roundedButton1 = new POS.RoundedButton();
+            this.submitButton = new POS.RoundedButton();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.Password = new POS.RoundTextbox();
-            this.Username = new POS.RoundTextbox();
+            this.passwordInput = new POS.RoundTextbox();
+            this.usernameInput = new POS.RoundTextbox();
             this.SignIn = new System.Windows.Forms.Label();
+            this.back = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Rectangle1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.back)).BeginInit();
             this.SuspendLayout();
             // 
             // Rectangle1
@@ -75,20 +77,21 @@
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
             // 
-            // roundedButton1
+            // submitButton
             // 
-            this.roundedButton1.BackColor = System.Drawing.Color.White;
-            this.roundedButton1.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
-            this.roundedButton1.FlatAppearance.BorderSize = 0;
-            this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.roundedButton1.Font = new System.Drawing.Font("Arial Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.roundedButton1.ForeColor = System.Drawing.Color.LightSkyBlue;
-            this.roundedButton1.Location = new System.Drawing.Point(369, 334);
-            this.roundedButton1.Name = "roundedButton1";
-            this.roundedButton1.Size = new System.Drawing.Size(194, 39);
-            this.roundedButton1.TabIndex = 26;
-            this.roundedButton1.Text = "Submit";
-            this.roundedButton1.UseVisualStyleBackColor = false;
+            this.submitButton.BackColor = System.Drawing.Color.White;
+            this.submitButton.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+            this.submitButton.FlatAppearance.BorderSize = 0;
+            this.submitButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.submitButton.Font = new System.Drawing.Font("Arial Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.submitButton.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.submitButton.Location = new System.Drawing.Point(369, 334);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(194, 39);
+            this.submitButton.TabIndex = 26;
+            this.submitButton.Text = "Submit";
+            this.submitButton.UseVisualStyleBackColor = false;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // pictureBox3
             // 
@@ -125,21 +128,22 @@
             this.label4.TabIndex = 24;
             this.label4.Text = "Username";
             // 
-            // Password
+            // passwordInput
             // 
-            this.Password.Location = new System.Drawing.Point(369, 239);
-            this.Password.Name = "Password";
-            this.Password.PlaceholderText = "Enter password";
-            this.Password.Size = new System.Drawing.Size(190, 23);
-            this.Password.TabIndex = 23;
+            this.passwordInput.Location = new System.Drawing.Point(369, 239);
+            this.passwordInput.Name = "passwordInput";
+            this.passwordInput.PlaceholderText = "Enter password";
+            this.passwordInput.Size = new System.Drawing.Size(190, 23);
+            this.passwordInput.TabIndex = 23;
+            this.passwordInput.UseSystemPasswordChar = true;
             // 
-            // Username
+            // usernameInput
             // 
-            this.Username.Location = new System.Drawing.Point(369, 166);
-            this.Username.Name = "Username";
-            this.Username.PlaceholderText = "Enter username";
-            this.Username.Size = new System.Drawing.Size(190, 23);
-            this.Username.TabIndex = 22;
+            this.usernameInput.Location = new System.Drawing.Point(369, 166);
+            this.usernameInput.Name = "usernameInput";
+            this.usernameInput.PlaceholderText = "Enter username";
+            this.usernameInput.Size = new System.Drawing.Size(190, 23);
+            this.usernameInput.TabIndex = 22;
             // 
             // SignIn
             // 
@@ -154,18 +158,30 @@
             this.SignIn.Text = "Sign In";
             this.SignIn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // back
+            // 
+            this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
+            this.back.Location = new System.Drawing.Point(24, 16);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(30, 33);
+            this.back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.back.TabIndex = 29;
+            this.back.TabStop = false;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 450);
+            this.Controls.Add(this.back);
             this.Controls.Add(this.SignIn);
-            this.Controls.Add(this.roundedButton1);
+            this.Controls.Add(this.submitButton);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.Password);
-            this.Controls.Add(this.Username);
+            this.Controls.Add(this.passwordInput);
+            this.Controls.Add(this.usernameInput);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.Rectangle1);
@@ -177,6 +193,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.back)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,12 +204,13 @@
         private PictureBox Rectangle1;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
-        private RoundedButton roundedButton1;
+        private RoundedButton submitButton;
         private PictureBox pictureBox3;
         private Label label5;
         private Label label4;
-        private RoundTextbox Password;
-        private RoundTextbox Username;
+        private RoundTextbox passwordInput;
+        private RoundTextbox usernameInput;
         private Label SignIn;
+        private PictureBox back;
     }
 }

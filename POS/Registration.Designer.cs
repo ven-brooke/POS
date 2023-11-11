@@ -33,27 +33,27 @@
             this.WelcometoPOSimals = new System.Windows.Forms.PictureBox();
             this.PoweredBy = new System.Windows.Forms.PictureBox();
             this.CreateAccount = new System.Windows.Forms.Label();
-            this.FirstName = new POS.RoundTextbox();
-            this.LastName = new POS.RoundTextbox();
-            this.Username = new POS.RoundTextbox();
-            this.EmailAddress = new POS.RoundTextbox();
-            this.SetPassword = new POS.RoundTextbox();
-            this.ConfirmPassword = new POS.RoundTextbox();
+            this.FirstName_input = new POS.RoundTextbox();
+            this.LastName_input = new POS.RoundTextbox();
+            this.Username_input = new POS.RoundTextbox();
+            this.EmailAddress_input = new POS.RoundTextbox();
+            this.SetPassword_input = new POS.RoundTextbox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.termsCheckbox = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.roundedButton1 = new POS.RoundedButton();
+            this.Signin_linkLabel = new System.Windows.Forms.LinkLabel();
+            this.submitButton = new POS.RoundedButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.exit = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Rectangle1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.WelcometoPOSimals)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PoweredBy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exit)).BeginInit();
             this.SuspendLayout();
             // 
             // Rectangle1
@@ -99,54 +99,47 @@
             this.CreateAccount.Text = "Create Account";
             this.CreateAccount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FirstName
+            // FirstName_input
             // 
-            this.FirstName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FirstName.Location = new System.Drawing.Point(404, 168);
-            this.FirstName.Name = "FirstName";
-            this.FirstName.PlaceholderText = "Enter first name";
-            this.FirstName.Size = new System.Drawing.Size(120, 23);
-            this.FirstName.TabIndex = 5;
+            this.FirstName_input.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.FirstName_input.Location = new System.Drawing.Point(404, 168);
+            this.FirstName_input.Name = "FirstName_input";
+            this.FirstName_input.PlaceholderText = "Enter first name";
+            this.FirstName_input.Size = new System.Drawing.Size(120, 23);
+            this.FirstName_input.TabIndex = 5;
             // 
-            // LastName
+            // LastName_input
             // 
-            this.LastName.Location = new System.Drawing.Point(566, 168);
-            this.LastName.Name = "LastName";
-            this.LastName.PlaceholderText = "Enter last name";
-            this.LastName.Size = new System.Drawing.Size(120, 23);
-            this.LastName.TabIndex = 6;
+            this.LastName_input.Location = new System.Drawing.Point(566, 168);
+            this.LastName_input.Name = "LastName_input";
+            this.LastName_input.PlaceholderText = "Enter last name";
+            this.LastName_input.Size = new System.Drawing.Size(120, 23);
+            this.LastName_input.TabIndex = 6;
             // 
-            // Username
+            // Username_input
             // 
-            this.Username.Location = new System.Drawing.Point(566, 221);
-            this.Username.Name = "Username";
-            this.Username.PlaceholderText = "Enter username";
-            this.Username.Size = new System.Drawing.Size(120, 23);
-            this.Username.TabIndex = 7;
+            this.Username_input.Location = new System.Drawing.Point(566, 221);
+            this.Username_input.Name = "Username_input";
+            this.Username_input.PlaceholderText = "Enter username";
+            this.Username_input.Size = new System.Drawing.Size(120, 23);
+            this.Username_input.TabIndex = 7;
             // 
-            // EmailAddress
+            // EmailAddress_input
             // 
-            this.EmailAddress.Location = new System.Drawing.Point(404, 221);
-            this.EmailAddress.Name = "EmailAddress";
-            this.EmailAddress.PlaceholderText = "Enter email address";
-            this.EmailAddress.Size = new System.Drawing.Size(120, 23);
-            this.EmailAddress.TabIndex = 7;
+            this.EmailAddress_input.Location = new System.Drawing.Point(404, 221);
+            this.EmailAddress_input.Name = "EmailAddress_input";
+            this.EmailAddress_input.PlaceholderText = "Enter email address";
+            this.EmailAddress_input.Size = new System.Drawing.Size(120, 23);
+            this.EmailAddress_input.TabIndex = 7;
             // 
-            // SetPassword
+            // SetPassword_input
             // 
-            this.SetPassword.Location = new System.Drawing.Point(404, 278);
-            this.SetPassword.Name = "SetPassword";
-            this.SetPassword.PlaceholderText = "Set password";
-            this.SetPassword.Size = new System.Drawing.Size(120, 23);
-            this.SetPassword.TabIndex = 8;
-            // 
-            // ConfirmPassword
-            // 
-            this.ConfirmPassword.Location = new System.Drawing.Point(566, 278);
-            this.ConfirmPassword.Name = "ConfirmPassword";
-            this.ConfirmPassword.PlaceholderText = "Confirm password";
-            this.ConfirmPassword.Size = new System.Drawing.Size(120, 23);
-            this.ConfirmPassword.TabIndex = 9;
+            this.SetPassword_input.Location = new System.Drawing.Point(488, 278);
+            this.SetPassword_input.Name = "SetPassword_input";
+            this.SetPassword_input.PlaceholderText = "Set password";
+            this.SetPassword_input.Size = new System.Drawing.Size(120, 23);
+            this.SetPassword_input.TabIndex = 8;
+            this.SetPassword_input.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -202,36 +195,24 @@
             this.label5.BackColor = System.Drawing.Color.LightSkyBlue;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(405, 260);
+            this.label5.Location = new System.Drawing.Point(489, 260);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(66, 17);
             this.label5.TabIndex = 14;
             this.label5.Text = "Password";
             // 
-            // label6
+            // termsCheckbox
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(566, 260);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(120, 17);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Confirm password";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.checkBox1.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.checkBox1.Location = new System.Drawing.Point(404, 321);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(231, 16);
-            this.checkBox1.TabIndex = 16;
-            this.checkBox1.Text = "I agree to the Terms and Conditions of POSimals";
-            this.checkBox1.UseVisualStyleBackColor = false;
+            this.termsCheckbox.AutoSize = true;
+            this.termsCheckbox.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.termsCheckbox.Font = new System.Drawing.Font("Segoe UI", 6.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.termsCheckbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.termsCheckbox.Location = new System.Drawing.Point(404, 321);
+            this.termsCheckbox.Name = "termsCheckbox";
+            this.termsCheckbox.Size = new System.Drawing.Size(231, 16);
+            this.termsCheckbox.TabIndex = 16;
+            this.termsCheckbox.Text = "I agree to the Terms and Conditions of POSimals";
+            this.termsCheckbox.UseVisualStyleBackColor = false;
             // 
             // label7
             // 
@@ -245,34 +226,35 @@
             this.label7.TabIndex = 17;
             this.label7.Text = "Already have an account?";
             // 
-            // linkLabel1
+            // Signin_linkLabel
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.linkLabel1.LinkColor = System.Drawing.Color.SteelBlue;
-            this.linkLabel1.Location = new System.Drawing.Point(550, 340);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(43, 13);
-            this.linkLabel1.TabIndex = 18;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Sign in";
-            this.linkLabel1.Click += new System.EventHandler(this.linkLabel1_Click);
+            this.Signin_linkLabel.AutoSize = true;
+            this.Signin_linkLabel.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.Signin_linkLabel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Signin_linkLabel.LinkColor = System.Drawing.Color.SteelBlue;
+            this.Signin_linkLabel.Location = new System.Drawing.Point(550, 340);
+            this.Signin_linkLabel.Name = "Signin_linkLabel";
+            this.Signin_linkLabel.Size = new System.Drawing.Size(43, 13);
+            this.Signin_linkLabel.TabIndex = 18;
+            this.Signin_linkLabel.TabStop = true;
+            this.Signin_linkLabel.Text = "Sign in";
+            this.Signin_linkLabel.Click += new System.EventHandler(this.linkLabel1_Click);
             // 
-            // roundedButton1
+            // submitButton
             // 
-            this.roundedButton1.BackColor = System.Drawing.Color.White;
-            this.roundedButton1.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
-            this.roundedButton1.FlatAppearance.BorderSize = 0;
-            this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.roundedButton1.Font = new System.Drawing.Font("Arial Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.roundedButton1.ForeColor = System.Drawing.Color.LightSkyBlue;
-            this.roundedButton1.Location = new System.Drawing.Point(445, 417);
-            this.roundedButton1.Name = "roundedButton1";
-            this.roundedButton1.Size = new System.Drawing.Size(194, 39);
-            this.roundedButton1.TabIndex = 20;
-            this.roundedButton1.Text = "Submit";
-            this.roundedButton1.UseVisualStyleBackColor = false;
+            this.submitButton.BackColor = System.Drawing.Color.White;
+            this.submitButton.FlatAppearance.BorderColor = System.Drawing.Color.LightSkyBlue;
+            this.submitButton.FlatAppearance.BorderSize = 0;
+            this.submitButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.submitButton.Font = new System.Drawing.Font("Arial Black", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.submitButton.ForeColor = System.Drawing.Color.LightSkyBlue;
+            this.submitButton.Location = new System.Drawing.Point(445, 417);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(194, 39);
+            this.submitButton.TabIndex = 20;
+            this.submitButton.Text = "Submit";
+            this.submitButton.UseVisualStyleBackColor = false;
+            this.submitButton.Click += new System.EventHandler(this.submitButton_Click);
             // 
             // pictureBox1
             // 
@@ -285,6 +267,17 @@
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
+            // exit
+            // 
+            this.exit.Image = ((System.Drawing.Image)(resources.GetObject("exit.Image")));
+            this.exit.Location = new System.Drawing.Point(21, 12);
+            this.exit.Name = "exit";
+            this.exit.Size = new System.Drawing.Size(33, 32);
+            this.exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.exit.TabIndex = 22;
+            this.exit.TabStop = false;
+            this.exit.Click += new System.EventHandler(this.exit_Click);
+            // 
             // Registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -292,23 +285,22 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(732, 505);
-            this.Controls.Add(this.roundedButton1);
+            this.Controls.Add(this.exit);
+            this.Controls.Add(this.submitButton);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.Signin_linkLabel);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.termsCheckbox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.ConfirmPassword);
-            this.Controls.Add(this.SetPassword);
-            this.Controls.Add(this.EmailAddress);
-            this.Controls.Add(this.Username);
-            this.Controls.Add(this.LastName);
-            this.Controls.Add(this.FirstName);
+            this.Controls.Add(this.SetPassword_input);
+            this.Controls.Add(this.EmailAddress_input);
+            this.Controls.Add(this.Username_input);
+            this.Controls.Add(this.LastName_input);
+            this.Controls.Add(this.FirstName_input);
             this.Controls.Add(this.CreateAccount);
             this.Controls.Add(this.PoweredBy);
             this.Controls.Add(this.Rectangle1);
@@ -320,6 +312,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.WelcometoPOSimals)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PoweredBy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.exit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,22 +323,21 @@
         private PictureBox WelcometoPOSimals;
         private PictureBox PoweredBy;
         private Label CreateAccount;
-        private RoundTextbox FirstName;
-        private RoundTextbox LastName;
-        private RoundTextbox Username;
-        private RoundTextbox EmailAddress;
-        private RoundTextbox SetPassword;
-        private RoundTextbox ConfirmPassword;
+        private RoundTextbox FirstName_input;
+        private RoundTextbox LastName_input;
+        private RoundTextbox Username_input;
+        private RoundTextbox EmailAddress_input;
+        private RoundTextbox SetPassword_input;
         private Label label1;
         private Label label2;
         private Label label3;
         private Label label4;
         private Label label5;
-        private Label label6;
-        private CheckBox checkBox1;
+        private CheckBox termsCheckbox;
         private Label label7;
-        private LinkLabel linkLabel1;
-        private RoundedButton roundedButton1;
+        private LinkLabel Signin_linkLabel;
+        private RoundedButton submitButton;
         private PictureBox pictureBox1;
+        private PictureBox exit;
     }
 }

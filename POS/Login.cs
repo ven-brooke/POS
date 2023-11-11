@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
+using Google.Cloud.Firestore;
 
 namespace POS
 {
@@ -30,5 +31,45 @@ namespace POS
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
         );
+
+        private void submitButton_Click(object sender, EventArgs e)
+        {
+            string username = usernameInput.Text.Trim();
+            string password = passwordInput.Text.Trim();
+
+            var db = FirestoreHelper.Database;
+            DocumentReference docRef = db.Collection("UserData").Document(username);
+            UserData data = docRef.GetSnapshotAsync().Result.ConvertTo<UserData>();
+
+            if(data!= null ) 
+            {
+                if(password == data.Password)
+                {
+                    MessageBox.Show("Login Success");
+
+                    /*
+                    // Proceed to another form (ex: Sales form)
+                    Sales sales = new Sales();
+                    this.Hide();
+                    sales.Show();
+                    */
+                }
+                else
+                {
+                    MessageBox.Show("Login Failed");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Login Failed"); 
+            }
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            Registration registration = new Registration();
+            this.Hide();
+            registration.Show();
+        }
     }
 }
