@@ -49,6 +49,11 @@ namespace POS
         {
             try
             {
+                if (!termsCheckbox.Checked)
+                {
+                    MessageBox.Show("Please accept the terms and conditions before submitting.");
+                    return;
+                }
                 var db = FirestoreHelper.Database;
                 if (CheckIfUserExists())
                 {
@@ -59,7 +64,7 @@ namespace POS
                 var data = GetWriteData();
                 DocumentReference docRef = db.Collection("UserData").Document(data.Username);
                 docRef.SetAsync(data);
-                MessageBox.Show("Success");
+                MessageBox.Show("Success!");
 
                 Login login = new Login();
                 this.Hide();

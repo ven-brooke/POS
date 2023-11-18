@@ -47,12 +47,10 @@ namespace POS
                 {
                     MessageBox.Show("Login Success");
 
-                    /*
                     // Proceed to another form (ex: Sales form)
                     Sales sales = new Sales();
                     this.Hide();
                     sales.Show();
-                    */
                 }
                 else
                 {
