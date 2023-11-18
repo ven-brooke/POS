@@ -132,6 +132,8 @@
             this.menuButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.menuButton.TabIndex = 0;
             this.menuButton.TabStop = false;
+            this.menuButton.MouseLeave += new System.EventHandler(this.menuButton_MouseLeave);
+            this.menuButton.MouseHover += new System.EventHandler(this.menuButton_MouseHover);
             // 
             // roundedPanel1
             // 

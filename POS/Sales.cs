@@ -13,6 +13,7 @@ namespace POS
 {
     public partial class Sales : Form
     {
+
         public Sales()
         {
             InitializeComponent();
@@ -21,6 +22,16 @@ namespace POS
         private void Sales_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void menuButton_MouseHover(object sender, EventArgs e)
+        {
+            menuDrop.Visible = true;
+        }
+
+        private void menuButton_MouseLeave(object sender, EventArgs e)
+        {
+            menuDrop.Visible = false;
         }
     }
     //for rounded panels
