@@ -44,6 +44,7 @@ namespace POS
             menuDrop.Visible = !menuDrop.Visible;
             menuDrop.Size = new Size(menuDrop.Width, 210);
             menuDrop.BringToFront();
+
         }
 
         private void menuButton_MouseEnter(object sender, EventArgs e)
