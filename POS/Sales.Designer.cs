@@ -133,8 +133,6 @@
             this.menuButton.TabIndex = 0;
             this.menuButton.TabStop = false;
             this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
-            this.menuButton.MouseEnter += new System.EventHandler(this.menuButton_MouseEnter);
-            this.menuButton.MouseLeave += new System.EventHandler(this.menuButton_MouseLeave);
             // 
             // roundedPanel1
             // 
@@ -399,6 +397,7 @@
             this.manageButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.manageButton.TabIndex = 25;
             this.manageButton.TabStop = false;
+            this.manageButton.Click += new System.EventHandler(this.manageButton_Click);
             // 
             // shiftButton
             // 

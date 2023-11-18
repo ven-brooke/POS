@@ -13,7 +13,6 @@ namespace POS
 {
     public partial class Sales : Form
     {
-        
         public Sales()
         {
             InitializeComponent();
@@ -49,17 +48,12 @@ namespace POS
             timer1.Start();
         }
 
-        private void menuButton_MouseEnter(object sender, EventArgs e)
+        private void manageButton_Click(object sender, EventArgs e)
         {
-
+            Manage_Items manageForm = new Manage_Items();
+            this.Hide();
+            manageForm.Show();
         }
-
-        private void menuButton_MouseLeave(object sender, EventArgs e)
-        {
-
-        }
-
-        
     }
     //for rounded panels
     class RoundedPanel : Panel
