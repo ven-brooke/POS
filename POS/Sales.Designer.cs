@@ -452,6 +452,11 @@
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
+            // 
             // Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);

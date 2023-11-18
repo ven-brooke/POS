@@ -19,20 +19,34 @@ namespace POS
             InitializeComponent();
         }
         bool expand = false;
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            if (expand == false)
-            {
-               // dropdown.Height += 210;
 
-            }
-        }
         private void Sales_Load(object sender, EventArgs e)
         {
         }
-
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            if (expand == false)
+            {
+                menuDrop.Height += 210;
+                if (menuDrop.Height >= menuDrop.MaximumSize.Height)
+                {
+                    timer1.Stop();
+                    expand = true;
+                }
+            }
+            else
+            {
+                menuDrop.Height -= 210;
+                if (menuDrop.Height <= menuDrop.MinimumSize.Height)
+                {
+                    timer1.Stop();
+                    expand = false;
+                }
+            }
+        }
         private void menuButton_Click(object sender, EventArgs e)
-        {  
+        {
+            timer1.Start();
         }
 
         private void menuButton_MouseEnter(object sender, EventArgs e)
@@ -44,6 +58,8 @@ namespace POS
         {
 
         }
+
+        
     }
     //for rounded panels
     class RoundedPanel : Panel
