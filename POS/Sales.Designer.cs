@@ -132,8 +132,9 @@
             this.menuButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.menuButton.TabIndex = 0;
             this.menuButton.TabStop = false;
+            this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
+            this.menuButton.MouseEnter += new System.EventHandler(this.menuButton_MouseEnter);
             this.menuButton.MouseLeave += new System.EventHandler(this.menuButton_MouseLeave);
-            this.menuButton.MouseHover += new System.EventHandler(this.menuButton_MouseHover);
             // 
             // roundedPanel1
             // 
@@ -374,7 +375,7 @@
             this.menuDrop.Controls.Add(this.accEmail);
             this.menuDrop.Controls.Add(this.accName);
             this.menuDrop.Controls.Add(this.pictureBox1);
-            this.menuDrop.Location = new System.Drawing.Point(22, 59);
+            this.menuDrop.Location = new System.Drawing.Point(21, 59);
             this.menuDrop.Name = "menuDrop";
             this.menuDrop.Size = new System.Drawing.Size(140, 10);
             this.menuDrop.TabIndex = 16;

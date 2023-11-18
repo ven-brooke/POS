@@ -13,25 +13,47 @@ namespace POS
 {
     public partial class Sales : Form
     {
-
+        
         public Sales()
         {
             InitializeComponent();
+            InitializeMenu();
         }
 
         private void Sales_Load(object sender, EventArgs e)
         {
 
         }
-
-        private void menuButton_MouseHover(object sender, EventArgs e)
+        private void InitializeMenu()
         {
-            menuDrop.Visible = true;
+            menuDrop = new RoundedPanel();
+
+            menuDrop.Visible = false;
+
+            Controls.Add(menuDrop);
+
+            PictureBox menuButton = new PictureBox();
+
+            menuButton.Click += menuButton_Click;
+
+            Controls.Add(menuButton);
+        }
+
+        private void menuButton_Click(object sender, EventArgs e)
+        {
+            menuDrop.Visible = !menuDrop.Visible;
+            menuDrop.Size = new Size(menuDrop.Width, 210);
+            menuDrop.BringToFront();
+        }
+
+        private void menuButton_MouseEnter(object sender, EventArgs e)
+        {
+
         }
 
         private void menuButton_MouseLeave(object sender, EventArgs e)
         {
-            menuDrop.Visible = false;
+
         }
     }
     //for rounded panels
