@@ -375,7 +375,7 @@
             this.menuDrop.Controls.Add(this.accEmail);
             this.menuDrop.Controls.Add(this.accName);
             this.menuDrop.Controls.Add(this.pictureBox1);
-            this.menuDrop.Location = new System.Drawing.Point(21, 59);
+            this.menuDrop.Location = new System.Drawing.Point(21, 62);
             this.menuDrop.Name = "menuDrop";
             this.menuDrop.Size = new System.Drawing.Size(140, 10);
             this.menuDrop.TabIndex = 16;

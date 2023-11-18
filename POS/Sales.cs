@@ -22,29 +22,50 @@ namespace POS
 
         private void Sales_Load(object sender, EventArgs e)
         {
-
+            menuDrop.Visible = false;
         }
         private void InitializeMenu()
         {
             menuDrop = new RoundedPanel();
 
-            menuDrop.Visible = false;
+            // Set up controls inside menuDrop
+            PictureBox pictureBox1 = new PictureBox();
+            Label accName = new Label();
+            Label accEmail = new Label();
+            Button receiptButton = new Button();
+            Button shiftButton = new Button();
+            Button manageButton = new Button();
+            Button settingsButton = new Button();
 
+            // Add controls to menuDrop
+            menuDrop.Controls.Add(pictureBox1);
+            menuDrop.Controls.Add(accName);
+            menuDrop.Controls.Add(accEmail);
+            menuDrop.Controls.Add(receiptButton);
+            menuDrop.Controls.Add(shiftButton);
+            menuDrop.Controls.Add(manageButton);
+            menuDrop.Controls.Add(settingsButton);
+
+            // Add menuDrop to the form
             Controls.Add(menuDrop);
 
-            PictureBox menuButton = new PictureBox();
+            // Set up menuButton
+            menuButton = new PictureBox();
 
+            menuDrop.Location = new Point(20, 50);
+
+            // Attach event handler for showing/hiding the menu on button click
             menuButton.Click += menuButton_Click;
 
+            // Add menuButton to the form
             Controls.Add(menuButton);
         }
 
         private void menuButton_Click(object sender, EventArgs e)
         {
             menuDrop.Visible = !menuDrop.Visible;
-            menuDrop.Size = new Size(menuDrop.Width, 210);
             menuDrop.BringToFront();
-
+            menuDrop.Size = new Size(menuDrop.Width, 210);
         }
 
         private void menuButton_MouseEnter(object sender, EventArgs e)
