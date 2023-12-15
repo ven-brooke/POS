@@ -44,20 +44,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.roundedPanel2 = new POS.RoundedPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.allProducts_link = new System.Windows.Forms.Label();
-            this.priceLabel = new System.Windows.Forms.Label();
-            this.prodName = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.productPicture = new System.Windows.Forms.PictureBox();
-            this.roundTextbox1 = new POS.RoundTextbox();
-            this.roundedPanel1 = new POS.RoundedPanel();
-            this.removeButton = new System.Windows.Forms.Label();
             this.dropdownButton = new System.Windows.Forms.PictureBox();
             this.profilePicture = new System.Windows.Forms.PictureBox();
             this.cartButton = new System.Windows.Forms.PictureBox();
             this.menuButton = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.roundTextbox1 = new POS.RoundTextbox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.allProducts_link = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.addButton = new POS.RoundedButton();
+            this.removeItemLabel = new System.Windows.Forms.LinkLabel();
             this.menuDrop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.settingsButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.manageButton)).BeginInit();
@@ -65,14 +64,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.receiptButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.roundedPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productPicture)).BeginInit();
-            this.roundedPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dropdownButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // editQty_label
@@ -205,9 +202,9 @@
             this.roundedPanel2.Controls.Add(this.editQty_label);
             this.roundedPanel2.Controls.Add(this.label3);
             this.roundedPanel2.Controls.Add(this.label2);
-            this.roundedPanel2.Location = new System.Drawing.Point(480, 103);
+            this.roundedPanel2.Location = new System.Drawing.Point(504, 117);
             this.roundedPanel2.Name = "roundedPanel2";
-            this.roundedPanel2.Size = new System.Drawing.Size(205, 315);
+            this.roundedPanel2.Size = new System.Drawing.Size(196, 315);
             this.roundedPanel2.TabIndex = 19;
             // 
             // label1
@@ -220,93 +217,6 @@
             this.label1.Size = new System.Drawing.Size(83, 15);
             this.label1.TabIndex = 16;
             this.label1.Text = "My Products";
-            // 
-            // allProducts_link
-            // 
-            this.allProducts_link.AutoSize = true;
-            this.allProducts_link.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.allProducts_link.ForeColor = System.Drawing.Color.SteelBlue;
-            this.allProducts_link.Location = new System.Drawing.Point(159, 20);
-            this.allProducts_link.Name = "allProducts_link";
-            this.allProducts_link.Size = new System.Drawing.Size(73, 15);
-            this.allProducts_link.TabIndex = 15;
-            this.allProducts_link.Text = "All Products";
-            // 
-            // priceLabel
-            // 
-            this.priceLabel.AutoSize = true;
-            this.priceLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.priceLabel.ForeColor = System.Drawing.Color.SteelBlue;
-            this.priceLabel.Location = new System.Drawing.Point(25, 140);
-            this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(43, 15);
-            this.priceLabel.TabIndex = 14;
-            this.priceLabel.Text = "(price)";
-            // 
-            // prodName
-            // 
-            this.prodName.AutoSize = true;
-            this.prodName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.prodName.ForeColor = System.Drawing.Color.SteelBlue;
-            this.prodName.Location = new System.Drawing.Point(25, 125);
-            this.prodName.Name = "prodName";
-            this.prodName.Size = new System.Drawing.Size(59, 15);
-            this.prodName.TabIndex = 13;
-            this.prodName.Text = "(product)";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(118, 14);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(19, 21);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
-            // 
-            // productPicture
-            // 
-            this.productPicture.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.productPicture.Location = new System.Drawing.Point(24, 52);
-            this.productPicture.Name = "productPicture";
-            this.productPicture.Size = new System.Drawing.Size(75, 64);
-            this.productPicture.TabIndex = 11;
-            this.productPicture.TabStop = false;
-            // 
-            // roundTextbox1
-            // 
-            this.roundTextbox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.roundTextbox1.Location = new System.Drawing.Point(15, 12);
-            this.roundTextbox1.Name = "roundTextbox1";
-            this.roundTextbox1.PlaceholderText = "Search item";
-            this.roundTextbox1.Size = new System.Drawing.Size(100, 23);
-            this.roundTextbox1.TabIndex = 10;
-            // 
-            // roundedPanel1
-            // 
-            this.roundedPanel1.BackColor = System.Drawing.Color.White;
-            this.roundedPanel1.Controls.Add(this.removeButton);
-            this.roundedPanel1.Controls.Add(this.allProducts_link);
-            this.roundedPanel1.Controls.Add(this.priceLabel);
-            this.roundedPanel1.Controls.Add(this.prodName);
-            this.roundedPanel1.Controls.Add(this.pictureBox2);
-            this.roundedPanel1.Controls.Add(this.productPicture);
-            this.roundedPanel1.Controls.Add(this.roundTextbox1);
-            this.roundedPanel1.Location = new System.Drawing.Point(18, 103);
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(447, 315);
-            this.roundedPanel1.TabIndex = 18;
-            // 
-            // removeButton
-            // 
-            this.removeButton.AutoSize = true;
-            this.removeButton.Font = new System.Drawing.Font("Segoe UI", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point);
-            this.removeButton.ForeColor = System.Drawing.Color.Red;
-            this.removeButton.Location = new System.Drawing.Point(370, 21);
-            this.removeButton.Name = "removeButton";
-            this.removeButton.Size = new System.Drawing.Size(54, 15);
-            this.removeButton.TabIndex = 16;
-            this.removeButton.Text = "Remove";
             // 
             // dropdownButton
             // 
@@ -367,27 +277,99 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Black", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.Gray;
-            this.label5.Location = new System.Drawing.Point(480, 84);
+            this.label5.Location = new System.Drawing.Point(578, 99);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(72, 15);
             this.label5.TabIndex = 28;
             this.label5.Text = "Categories";
+            // 
+            // roundTextbox1
+            // 
+            this.roundTextbox1.BackColor = System.Drawing.Color.Gainsboro;
+            this.roundTextbox1.Location = new System.Drawing.Point(12, 98);
+            this.roundTextbox1.Name = "roundTextbox1";
+            this.roundTextbox1.PlaceholderText = "Search item";
+            this.roundTextbox1.Size = new System.Drawing.Size(111, 23);
+            this.roundTextbox1.TabIndex = 10;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(129, 100);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(19, 21);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 12;
+            this.pictureBox2.TabStop = false;
+            // 
+            // allProducts_link
+            // 
+            this.allProducts_link.AutoSize = true;
+            this.allProducts_link.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.allProducts_link.ForeColor = System.Drawing.Color.SteelBlue;
+            this.allProducts_link.Location = new System.Drawing.Point(155, 101);
+            this.allProducts_link.Name = "allProducts_link";
+            this.allProducts_link.Size = new System.Drawing.Size(73, 15);
+            this.allProducts_link.TabIndex = 15;
+            this.allProducts_link.Text = "All Products";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 117);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(447, 315);
+            this.flowLayoutPanel1.TabIndex = 29;
+            // 
+            // addButton
+            // 
+            this.addButton.BackColor = System.Drawing.Color.SkyBlue;
+            this.addButton.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.addButton.ForeColor = System.Drawing.Color.White;
+            this.addButton.Location = new System.Drawing.Point(457, 389);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(46, 43);
+            this.addButton.TabIndex = 30;
+            this.addButton.Text = "+";
+            this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            // 
+            // removeItemLabel
+            // 
+            this.removeItemLabel.AutoSize = true;
+            this.removeItemLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.removeItemLabel.LinkColor = System.Drawing.Color.Red;
+            this.removeItemLabel.Location = new System.Drawing.Point(405, 101);
+            this.removeItemLabel.Name = "removeItemLabel";
+            this.removeItemLabel.Size = new System.Drawing.Size(54, 15);
+            this.removeItemLabel.TabIndex = 31;
+            this.removeItemLabel.TabStop = true;
+            this.removeItemLabel.Text = "Remove";
+            this.removeItemLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.removeItemLabel_LinkClicked);
             // 
             // Manage_Items
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(712, 444);
+            this.Controls.Add(this.removeItemLabel);
+            this.Controls.Add(this.addButton);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.menuDrop);
+            this.Controls.Add(this.allProducts_link);
             this.Controls.Add(this.roundedPanel2);
-            this.Controls.Add(this.roundedPanel1);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.roundTextbox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Manage_Items";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage_Items";
+            this.Load += new System.EventHandler(this.Manage_Items_Load);
             this.menuDrop.ResumeLayout(false);
             this.menuDrop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.settingsButton)).EndInit();
@@ -397,15 +379,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.roundedPanel2.ResumeLayout(false);
             this.roundedPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productPicture)).EndInit();
-            this.roundedPanel1.ResumeLayout(false);
-            this.roundedPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dropdownButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,19 +405,18 @@
         private Label label2;
         private RoundedPanel roundedPanel2;
         private Label label1;
-        private Label allProducts_link;
-        private Label priceLabel;
-        private Label prodName;
-        private PictureBox pictureBox2;
-        private PictureBox productPicture;
-        private RoundTextbox roundTextbox1;
-        private RoundedPanel roundedPanel1;
         private PictureBox dropdownButton;
         private PictureBox profilePicture;
         private PictureBox cartButton;
         private PictureBox menuButton;
         private Panel panel1;
-        private Label removeButton;
         private Label label5;
+        private RoundTextbox roundTextbox1;
+        private PictureBox pictureBox2;
+        private Label allProducts_link;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private ColorDialog colorDialog1;
+        private RoundedButton addButton;
+        private LinkLabel removeItemLabel;
     }
 }

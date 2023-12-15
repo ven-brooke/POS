@@ -22,4 +22,17 @@ namespace POS
         public string LastName { get; set; }
 
     }
+
+    [FirestoreData]
+    internal class ItemData
+    {
+        [FirestoreProperty]
+        public string Name { get; set; }
+
+        [FirestoreProperty]
+        public string Price { get; set; }
+
+        [FirestoreProperty]
+        public string ImageUrl { get; set; }
+    }
 }

@@ -33,10 +33,6 @@ namespace POS
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
         );
-        private void Registration_Load(object sender, EventArgs e)
-        {
-            InitializeComponent();
-        }
 
         private void linkLabel1_Click(object sender, EventArgs e)
         {
@@ -45,25 +41,28 @@ namespace POS
             login.Show();
         }
 
-        private void submitButton_Click(object sender, EventArgs e)
+        private async void submitButton_Click(object sender, EventArgs e)
         {
             try
             {
+                
                 if (!termsCheckbox.Checked)
                 {
                     MessageBox.Show("Please accept the terms and conditions before submitting.");
                     return;
                 }
                 var db = FirestoreHelper.Database;
-                if (CheckIfUserExists())
+                string username = Username_input.Text.Trim();
+                if (CheckIfUserExists(username))
                 {
                     MessageBox.Show("User already exists!");
                     return;
                 }
 
                 var data = GetWriteData();
-                DocumentReference docRef = db.Collection("UserData").Document(data.Username);
-                docRef.SetAsync(data);
+                
+                DocumentReference docRef = db.Collection("UserData").Document(username);
+                await docRef.SetAsync(data);
                 MessageBox.Show("Success!");
 
                 Login login = new Login();
@@ -93,12 +92,10 @@ namespace POS
                 Password = password
             };
         }
-        private bool CheckIfUserExists()
+        private bool CheckIfUserExists(string username)
         {
             try
             {
-                string username = Username_input.Text.Trim();
-
                 var db = FirestoreHelper.Database;
                 DocumentReference docRef = db.Collection("UserData").Document(username);
                 UserData data = docRef.GetSnapshotAsync().Result.ConvertTo<UserData>();

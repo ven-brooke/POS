@@ -32,7 +32,7 @@ namespace POS
             int nHeightEllipse // width of ellipse
         );
 
-        private void submitButton_Click(object sender, EventArgs e)
+        private async void submitButton_Click(object sender, EventArgs e)
         {
             string username = usernameInput.Text.Trim();
             string password = passwordInput.Text.Trim();
@@ -41,25 +41,25 @@ namespace POS
             DocumentReference docRef = db.Collection("UserData").Document(username);
             UserData data = docRef.GetSnapshotAsync().Result.ConvertTo<UserData>();
 
-            if(data!= null ) 
+            if (data != null)
             {
-                if(password == data.Password)
+                if (password == data.Password)
                 {
                     MessageBox.Show("Login Success");
-
+                    Hide();
                     // Proceed to another form (ex: Sales form)
-                    Sales sales = new Sales();
-                    this.Hide();
-                    sales.Show();
+                    Sales sales = new Sales(username);
+                    sales.ShowDialog();
+                    Close();
                 }
                 else
                 {
-                    MessageBox.Show("Login Failed");
+                    MessageBox.Show("Login Failed: Invalid username or password.");
                 }
             }
             else
             {
-                MessageBox.Show("Login Failed"); 
+                MessageBox.Show("Login Failed: User does not exist.");
             }
         }
 

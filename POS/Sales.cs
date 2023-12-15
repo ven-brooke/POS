@@ -13,9 +13,11 @@ namespace POS
 {
     public partial class Sales : Form
     {
-        public Sales()
+        private string _currentUsername;
+        public Sales(string currentUsername)
         {
             InitializeComponent();
+            _currentUsername = currentUsername;
         }
         bool expand = false;
 
@@ -50,7 +52,7 @@ namespace POS
 
         private void manageButton_Click(object sender, EventArgs e)
         {
-            Manage_Items manageForm = new Manage_Items();
+            Manage_Items manageForm = new Manage_Items(_currentUsername);
             this.Hide();
             manageForm.Show();
         }
