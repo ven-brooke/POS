@@ -35,7 +35,6 @@
             this.profilePicture = new System.Windows.Forms.PictureBox();
             this.cartButton = new System.Windows.Forms.PictureBox();
             this.menuButton = new System.Windows.Forms.PictureBox();
-            this.allProducts_link = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.roundTextbox1 = new POS.RoundTextbox();
             this.roundedPanel2 = new POS.RoundedPanel();
@@ -43,10 +42,8 @@
             this.itemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.totalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.payButton = new POS.RoundedButton();
             this.cancelButton = new POS.RoundedButton();
@@ -55,7 +52,6 @@
             this.settingsButton = new System.Windows.Forms.PictureBox();
             this.manageButton = new System.Windows.Forms.PictureBox();
             this.receiptButton = new System.Windows.Forms.PictureBox();
-            this.accEmail = new System.Windows.Forms.Label();
             this.accName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -132,17 +128,6 @@
             this.menuButton.TabStop = false;
             this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
             // 
-            // allProducts_link
-            // 
-            this.allProducts_link.AutoSize = true;
-            this.allProducts_link.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.allProducts_link.ForeColor = System.Drawing.Color.SteelBlue;
-            this.allProducts_link.Location = new System.Drawing.Point(285, 84);
-            this.allProducts_link.Name = "allProducts_link";
-            this.allProducts_link.Size = new System.Drawing.Size(73, 15);
-            this.allProducts_link.TabIndex = 15;
-            this.allProducts_link.Text = "All Products";
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
@@ -167,9 +152,6 @@
             this.roundedPanel2.BackColor = System.Drawing.Color.White;
             this.roundedPanel2.Controls.Add(this.dataGridView1);
             this.roundedPanel2.Controls.Add(this.label5);
-            this.roundedPanel2.Controls.Add(this.label4);
-            this.roundedPanel2.Controls.Add(this.label3);
-            this.roundedPanel2.Controls.Add(this.label2);
             this.roundedPanel2.Controls.Add(this.label1);
             this.roundedPanel2.Location = new System.Drawing.Point(364, 75);
             this.roundedPanel2.Name = "roundedPanel2";
@@ -183,12 +165,13 @@
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.itemName,
             this.itemPrice,
-            this.quantity});
+            this.quantity,
+            this.totalPrice});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ActiveBorder;
-            this.dataGridView1.Location = new System.Drawing.Point(14, 66);
+            this.dataGridView1.Location = new System.Drawing.Point(14, 44);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(314, 185);
+            this.dataGridView1.Size = new System.Drawing.Size(314, 207);
             this.dataGridView1.TabIndex = 21;
             // 
             // itemName
@@ -206,6 +189,11 @@
             this.quantity.HeaderText = "Quantity";
             this.quantity.Name = "quantity";
             // 
+            // totalPrice
+            // 
+            this.totalPrice.HeaderText = "Total Price";
+            this.totalPrice.Name = "totalPrice";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -216,39 +204,6 @@
             this.label5.Size = new System.Drawing.Size(39, 15);
             this.label5.TabIndex = 20;
             this.label5.Text = "Total";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label4.Location = new System.Drawing.Point(184, 39);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 13);
-            this.label4.TabIndex = 19;
-            this.label4.Text = "Price";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label3.Location = new System.Drawing.Point(266, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Quantity";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.ForeColor = System.Drawing.Color.SteelBlue;
-            this.label2.Location = new System.Drawing.Point(74, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Product";
             // 
             // label1
             // 
@@ -271,6 +226,7 @@
             this.payButton.TabIndex = 3;
             this.payButton.Text = "Pay (Total)";
             this.payButton.UseVisualStyleBackColor = false;
+            this.payButton.Click += new System.EventHandler(this.payButton_Click);
             // 
             // cancelButton
             // 
@@ -303,7 +259,6 @@
             this.menuDrop.Controls.Add(this.settingsButton);
             this.menuDrop.Controls.Add(this.manageButton);
             this.menuDrop.Controls.Add(this.receiptButton);
-            this.menuDrop.Controls.Add(this.accEmail);
             this.menuDrop.Controls.Add(this.accName);
             this.menuDrop.Controls.Add(this.pictureBox1);
             this.menuDrop.Location = new System.Drawing.Point(21, 62);
@@ -341,17 +296,7 @@
             this.receiptButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.receiptButton.TabIndex = 23;
             this.receiptButton.TabStop = false;
-            // 
-            // accEmail
-            // 
-            this.accEmail.AutoSize = true;
-            this.accEmail.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.accEmail.ForeColor = System.Drawing.Color.SteelBlue;
-            this.accEmail.Location = new System.Drawing.Point(63, 30);
-            this.accEmail.Name = "accEmail";
-            this.accEmail.Size = new System.Drawing.Size(43, 13);
-            this.accEmail.TabIndex = 22;
-            this.accEmail.Text = "(Email)";
+            this.receiptButton.Click += new System.EventHandler(this.receiptButton_Click);
             // 
             // accName
             // 
@@ -436,7 +381,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.quantity_textBox);
             this.Controls.Add(this.menuDrop);
-            this.Controls.Add(this.allProducts_link);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.roundTextbox1);
             this.Controls.Add(this.addToCart);
@@ -482,19 +426,14 @@
         private RoundedButton payButton;
         private RoundedButton cancelButton;
         private RoundedButton addToCart;
-        private Label allProducts_link;
         private PictureBox pictureBox2;
         private RoundTextbox roundTextbox1;
         private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label2;
         private Label label1;
         private RoundedPanel menuDrop;
         private PictureBox settingsButton;
         private PictureBox manageButton;
         private PictureBox receiptButton;
-        private Label accEmail;
         private Label accName;
         private PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
@@ -502,10 +441,11 @@
         private DataGridView dataGridView1;
         private TextBox quantity_textBox;
         private Label label6;
+        private Label label7;
+        private ComboBox productName_comboBox;
         private DataGridViewTextBoxColumn itemName;
         private DataGridViewTextBoxColumn itemPrice;
         private DataGridViewTextBoxColumn quantity;
-        private Label label7;
-        private ComboBox productName_comboBox;
+        private DataGridViewTextBoxColumn totalPrice;
     }
 }

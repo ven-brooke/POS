@@ -251,6 +251,108 @@ namespace POS
         {
             dataGridView1.Rows.Clear();
         }
+
+        private void GenerateReceipt()
+        {
+            StringBuilder receiptContent = new StringBuilder();
+
+            // Add header information to the receipt
+            receiptContent.AppendLine("************ Receipt ************");
+            receiptContent.AppendLine($"Date: {DateTime.Now}");
+            receiptContent.AppendLine("*********************************");
+            receiptContent.AppendLine();
+
+            // Add items from the DataGridView to the receipt
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                // Check if the cell value is not null before accessing its ToString method
+                string itemName = row.Cells[0].Value != null ? row.Cells[0].Value.ToString() : string.Empty;
+                string itemPrice = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : string.Empty;
+                string quantity = row.Cells[2].Value != null ? row.Cells[2].Value.ToString() : string.Empty;
+                string totalPrice = row.Cells[3].Value != null ? row.Cells[3].Value.ToString() : string.Empty;
+
+                receiptContent.AppendLine($"{itemName} - {itemPrice} x {quantity} = {totalPrice}");
+            }
+
+            // Add footer information to the receipt
+            receiptContent.AppendLine();
+            receiptContent.AppendLine("*********************************");
+            receiptContent.AppendLine("Thank you for shopping with us!");
+            receiptContent.AppendLine("*********************************");
+
+            // Display the receipt or save it to a file, or print it, etc.
+            MessageBox.Show(receiptContent.ToString(), "Receipt", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private async void payButton_Click(object sender, EventArgs e)
+        {
+            // Generate and present the receipt
+            GenerateReceipt();
+
+            // Store the receipt in Firestore
+            await StoreReceiptInFirestore();
+        }
+
+        private async Task StoreReceiptInFirestore()
+        {
+            try
+            {
+                var db = FirestoreHelper.Database;
+                DocumentReference userDocRef = db.Collection("UserData").Document(_currentUsername);
+                CollectionReference receiptsCollection = userDocRef.Collection("Receipts");
+
+                // Create a new document with receipt details
+                var receiptDocument = new Dictionary<string, object>
+                {
+                    { "Items", GetReceiptItems() }, // Use a helper method to get receipt items
+                    // Add more fields as needed
+                };
+
+                // Add the document to the Receipts collection
+                await receiptsCollection.AddAsync(receiptDocument);
+
+                MessageBox.Show("Receipt stored in Firestore.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error storing receipt in Firestore: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private List<Dictionary<string, object>> GetReceiptItems()
+        {
+            List<Dictionary<string, object>> receiptItems = new List<Dictionary<string, object>>();
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                string itemName = row.Cells[0].Value != null ? row.Cells[0].Value.ToString() : string.Empty;
+                string itemPrice = row.Cells[1].Value != null ? row.Cells[1].Value.ToString() : string.Empty;
+                string quantity = row.Cells[2].Value != null ? row.Cells[2].Value.ToString() : string.Empty;
+                string totalPrice = row.Cells[3].Value != null ? row.Cells[3].Value.ToString() : string.Empty;
+
+                // Create a dictionary for each item
+                var itemDetails = new Dictionary<string, object>
+                {
+                    { "Name", itemName },
+                    { "Price", itemPrice },
+                    { "Quantity", quantity },
+                    { "TotalPrice", totalPrice },
+                    // Add more fields as needed
+                };                                                                          
+
+                receiptItems.Add(itemDetails);
+            }
+
+            return receiptItems;
+        }
+
+        private void receiptButton_Click(object sender, EventArgs e)
+        {
+            Receipt receiptForm = new Receipt(_currentUsername); // Pass any necessary parameters to the ReceiptForm constructor
+            receiptForm.Show();
+
+            this.Hide();
+        }
     }
 
     //for rounded panels

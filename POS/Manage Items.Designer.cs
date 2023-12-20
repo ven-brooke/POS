@@ -36,7 +36,6 @@
             this.settingsButton = new System.Windows.Forms.PictureBox();
             this.manageButton = new System.Windows.Forms.PictureBox();
             this.receiptButton = new System.Windows.Forms.PictureBox();
-            this.accEmail = new System.Windows.Forms.Label();
             this.accName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -96,7 +95,6 @@
             this.menuDrop.Controls.Add(this.settingsButton);
             this.menuDrop.Controls.Add(this.manageButton);
             this.menuDrop.Controls.Add(this.receiptButton);
-            this.menuDrop.Controls.Add(this.accEmail);
             this.menuDrop.Controls.Add(this.accName);
             this.menuDrop.Controls.Add(this.pictureBox1);
             this.menuDrop.Location = new System.Drawing.Point(18, 73);
@@ -134,17 +132,6 @@
             this.receiptButton.TabIndex = 23;
             this.receiptButton.TabStop = false;
             this.receiptButton.Click += new System.EventHandler(this.receiptButton_Click);
-            // 
-            // accEmail
-            // 
-            this.accEmail.AutoSize = true;
-            this.accEmail.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.accEmail.ForeColor = System.Drawing.Color.SteelBlue;
-            this.accEmail.Location = new System.Drawing.Point(63, 30);
-            this.accEmail.Name = "accEmail";
-            this.accEmail.Size = new System.Drawing.Size(43, 13);
-            this.accEmail.TabIndex = 22;
-            this.accEmail.Text = "(Email)";
             // 
             // accName
             // 
@@ -383,7 +370,6 @@
         private PictureBox settingsButton;
         private PictureBox manageButton;
         private PictureBox receiptButton;
-        private Label accEmail;
         private Label accName;
         private PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
