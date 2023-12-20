@@ -32,6 +32,15 @@ namespace POS
                 DocumentReference userDocRef = db.Collection("UserData").Document(_currentUsername);
                 CollectionReference itemsCollection = userDocRef.Collection("Items");
 
+                DocumentSnapshot userSnapshot = await userDocRef.GetSnapshotAsync();
+                if (userSnapshot.Exists)
+                {
+                    string userName = userSnapshot.GetValue<string>("FirstName");
+
+                    // Set the user's name to the label
+                    accName.Text = $"{userName}";
+                }
+
                 var querySnapshot = await itemsCollection.GetSnapshotAsync();
                 foreach (var document in querySnapshot.Documents)
                 {
