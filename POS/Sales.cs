@@ -42,6 +42,10 @@ namespace POS
 
                     await AddSalesToUI(itemName, itemPrice, imageUrl);
                 }
+                foreach (DataGridViewColumn column in dataGridView1.Columns)
+                {
+                    column.DefaultCellStyle.ForeColor = Color.Black;
+                }
             }
             catch (Exception ex)
             {
@@ -225,8 +229,11 @@ namespace POS
                     string itemPrice = document.GetValue<string>("Price");
                     string imageUrl = document.GetValue<string>("ImageUrl");
 
+                    // Calculate the total price based on quantity
+                    decimal totalPrice = decimal.Parse(itemPrice) * quantity;
+
                     // Add the selected product to the DataGridView
-                    dataGridView1.Rows.Add(itemName, itemPrice, quantity, imageUrl);
+                    dataGridView1.Rows.Add(itemName, itemPrice, quantity, totalPrice, imageUrl);
                 }
                 else
                 {
@@ -237,6 +244,11 @@ namespace POS
             {
                 MessageBox.Show($"Error adding to cart: {ex.Message}");
             }
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
         }
     }
 
