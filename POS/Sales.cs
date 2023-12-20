@@ -42,10 +42,6 @@ namespace POS
 
                     await AddSalesToUI(itemName, itemPrice, imageUrl);
                 }
-                foreach (DataGridViewColumn column in dataGridView1.Columns)
-                {
-                    column.DefaultCellStyle.ForeColor = Color.Black;
-                }
             }
             catch (Exception ex)
             {
