@@ -230,6 +230,11 @@ namespace POS
 
                     // Add the selected product to the DataGridView
                     dataGridView1.Rows.Add(itemName, itemPrice, quantity, totalPrice, imageUrl);
+                    
+                    foreach (DataGridViewColumn column in dataGridView1.Columns)
+                    {
+                        column.DefaultCellStyle.ForeColor = Color.Black;
+                    }
                 }
                 else
                 {

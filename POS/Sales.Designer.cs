@@ -54,7 +54,6 @@
             this.menuDrop = new POS.RoundedPanel();
             this.settingsButton = new System.Windows.Forms.PictureBox();
             this.manageButton = new System.Windows.Forms.PictureBox();
-            this.shiftButton = new System.Windows.Forms.PictureBox();
             this.receiptButton = new System.Windows.Forms.PictureBox();
             this.accEmail = new System.Windows.Forms.Label();
             this.accName = new System.Windows.Forms.Label();
@@ -76,7 +75,6 @@
             this.menuDrop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.settingsButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.manageButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shiftButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiptButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -190,7 +188,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(14, 66);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(314, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(314, 185);
             this.dataGridView1.TabIndex = 21;
             // 
             // itemName
@@ -304,7 +302,6 @@
             // 
             this.menuDrop.Controls.Add(this.settingsButton);
             this.menuDrop.Controls.Add(this.manageButton);
-            this.menuDrop.Controls.Add(this.shiftButton);
             this.menuDrop.Controls.Add(this.receiptButton);
             this.menuDrop.Controls.Add(this.accEmail);
             this.menuDrop.Controls.Add(this.accName);
@@ -317,7 +314,7 @@
             // settingsButton
             // 
             this.settingsButton.Image = ((System.Drawing.Image)(resources.GetObject("settingsButton.Image")));
-            this.settingsButton.Location = new System.Drawing.Point(0, 160);
+            this.settingsButton.Location = new System.Drawing.Point(0, 139);
             this.settingsButton.Name = "settingsButton";
             this.settingsButton.Size = new System.Drawing.Size(140, 35);
             this.settingsButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -327,23 +324,13 @@
             // manageButton
             // 
             this.manageButton.Image = ((System.Drawing.Image)(resources.GetObject("manageButton.Image")));
-            this.manageButton.Location = new System.Drawing.Point(0, 125);
+            this.manageButton.Location = new System.Drawing.Point(0, 98);
             this.manageButton.Name = "manageButton";
             this.manageButton.Size = new System.Drawing.Size(140, 35);
             this.manageButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.manageButton.TabIndex = 25;
             this.manageButton.TabStop = false;
             this.manageButton.Click += new System.EventHandler(this.manageButton_Click);
-            // 
-            // shiftButton
-            // 
-            this.shiftButton.Image = ((System.Drawing.Image)(resources.GetObject("shiftButton.Image")));
-            this.shiftButton.Location = new System.Drawing.Point(0, 92);
-            this.shiftButton.Name = "shiftButton";
-            this.shiftButton.Size = new System.Drawing.Size(140, 35);
-            this.shiftButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.shiftButton.TabIndex = 24;
-            this.shiftButton.TabStop = false;
             // 
             // receiptButton
             // 
@@ -477,7 +464,6 @@
             this.menuDrop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.settingsButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.manageButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.shiftButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiptButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -507,7 +493,6 @@
         private RoundedPanel menuDrop;
         private PictureBox settingsButton;
         private PictureBox manageButton;
-        private PictureBox shiftButton;
         private PictureBox receiptButton;
         private Label accEmail;
         private Label accName;
