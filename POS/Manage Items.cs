@@ -229,6 +229,10 @@ namespace POS
                 }
             }
         }
-        
+
+        private void manageButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

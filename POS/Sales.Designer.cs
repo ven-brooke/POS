@@ -35,8 +35,6 @@
             this.profilePicture = new System.Windows.Forms.PictureBox();
             this.cartButton = new System.Windows.Forms.PictureBox();
             this.menuButton = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.roundTextbox1 = new POS.RoundTextbox();
             this.roundedPanel2 = new POS.RoundedPanel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.itemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,7 +63,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.roundedPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.menuDrop.SuspendLayout();
@@ -127,25 +124,6 @@
             this.menuButton.TabIndex = 0;
             this.menuButton.TabStop = false;
             this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(133, 78);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(19, 21);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
-            // 
-            // roundTextbox1
-            // 
-            this.roundTextbox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.roundTextbox1.Location = new System.Drawing.Point(21, 78);
-            this.roundTextbox1.Name = "roundTextbox1";
-            this.roundTextbox1.PlaceholderText = "Search item";
-            this.roundTextbox1.Size = new System.Drawing.Size(100, 23);
-            this.roundTextbox1.TabIndex = 10;
             // 
             // roundedPanel2
             // 
@@ -328,9 +306,9 @@
             // 
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.ForeColor = System.Drawing.Color.White;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(24, 106);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(24, 78);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(334, 211);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(334, 239);
             this.flowLayoutPanel1.TabIndex = 17;
             // 
             // quantity_textBox
@@ -381,8 +359,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.quantity_textBox);
             this.Controls.Add(this.menuDrop);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.roundTextbox1);
             this.Controls.Add(this.addToCart);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.payButton);
@@ -400,7 +376,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.roundedPanel2.ResumeLayout(false);
             this.roundedPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -426,8 +401,6 @@
         private RoundedButton payButton;
         private RoundedButton cancelButton;
         private RoundedButton addToCart;
-        private PictureBox pictureBox2;
-        private RoundTextbox roundTextbox1;
         private Label label5;
         private Label label1;
         private RoundedPanel menuDrop;

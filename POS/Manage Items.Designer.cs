@@ -43,9 +43,6 @@
             this.cartButton = new System.Windows.Forms.PictureBox();
             this.menuButton = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.roundTextbox1 = new POS.RoundTextbox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.allProducts_link = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.addButton = new POS.RoundedButton();
@@ -60,7 +57,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cartButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuDrop
@@ -94,6 +90,7 @@
             this.manageButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.manageButton.TabIndex = 25;
             this.manageButton.TabStop = false;
+            this.manageButton.Click += new System.EventHandler(this.manageButton_Click);
             // 
             // receiptButton
             // 
@@ -197,44 +194,14 @@
             this.panel1.Size = new System.Drawing.Size(732, 67);
             this.panel1.TabIndex = 17;
             // 
-            // roundTextbox1
-            // 
-            this.roundTextbox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.roundTextbox1.Location = new System.Drawing.Point(12, 98);
-            this.roundTextbox1.Name = "roundTextbox1";
-            this.roundTextbox1.PlaceholderText = "Search item";
-            this.roundTextbox1.Size = new System.Drawing.Size(111, 23);
-            this.roundTextbox1.TabIndex = 10;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(129, 100);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(19, 21);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
-            // 
-            // allProducts_link
-            // 
-            this.allProducts_link.AutoSize = true;
-            this.allProducts_link.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.allProducts_link.ForeColor = System.Drawing.Color.SteelBlue;
-            this.allProducts_link.Location = new System.Drawing.Point(155, 101);
-            this.allProducts_link.Name = "allProducts_link";
-            this.allProducts_link.Size = new System.Drawing.Size(73, 15);
-            this.allProducts_link.TabIndex = 15;
-            this.allProducts_link.Text = "All Products";
-            // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 117);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 102);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(638, 315);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(638, 330);
             this.flowLayoutPanel1.TabIndex = 29;
             // 
             // addButton
@@ -255,7 +222,7 @@
             this.removeItemLabel.AutoSize = true;
             this.removeItemLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.removeItemLabel.LinkColor = System.Drawing.Color.Red;
-            this.removeItemLabel.Location = new System.Drawing.Point(596, 98);
+            this.removeItemLabel.Location = new System.Drawing.Point(596, 84);
             this.removeItemLabel.Name = "removeItemLabel";
             this.removeItemLabel.Size = new System.Drawing.Size(54, 15);
             this.removeItemLabel.TabIndex = 31;
@@ -272,11 +239,8 @@
             this.Controls.Add(this.removeItemLabel);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.allProducts_link);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.roundTextbox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Manage_Items";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -293,7 +257,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.cartButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,9 +276,6 @@
         private PictureBox cartButton;
         private PictureBox menuButton;
         private Panel panel1;
-        private RoundTextbox roundTextbox1;
-        private PictureBox pictureBox2;
-        private Label allProducts_link;
         private FlowLayoutPanel flowLayoutPanel1;
         private ColorDialog colorDialog1;
         private RoundedButton addButton;
