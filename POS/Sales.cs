@@ -1,4 +1,5 @@
 ﻿using Google.Cloud.Firestore;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,6 +36,7 @@ namespace POS
                 foreach (var document in querySnapshot.Documents)
                 {
                     string itemName = document.GetValue<string>("Name");
+                    productName_comboBox.Items.Add(itemName);
                     string itemPrice = document.GetValue<string>("Price");
                     string imageUrl = document.GetValue<string>("ImageUrl");
 
@@ -94,6 +96,7 @@ namespace POS
             itemPanel.Controls.Add(upperLabel);
             itemPanel.Controls.Add(lowerLabel);
 
+
             // Add the panel to the main FlowLayoutPanel (flowLayoutPanel1)
             flowLayoutPanel1.Controls.Add(itemPanel);
 
@@ -149,6 +152,12 @@ namespace POS
             }
         }
 
+        private void AddToCart(string itemName, string itemPrice, int quantity)
+        {
+            // Add a new row to the DataGridView
+            dataGridView1.Rows.Add(itemName, itemPrice, quantity);
+        }
+
         //minor features
         private void timer1_Tick_1(object sender, EventArgs e)
         {
@@ -181,6 +190,53 @@ namespace POS
             Manage_Items manageForm = new Manage_Items(_currentUsername);
             this.Hide();
             manageForm.Show();
+        }
+
+        private async void addToCart_Click(object sender, EventArgs e)
+        {
+            string selectedProductName = productName_comboBox.SelectedItem as string;
+            if (string.IsNullOrEmpty(selectedProductName))
+            {
+                MessageBox.Show("Please select a product.");
+                return;
+            }
+
+            string quantityText = quantity_textBox.Text;
+            if (!int.TryParse(quantityText, out int quantity) || quantity <= 0)
+            {
+                MessageBox.Show("Please enter a valid quantity.");
+                return;
+            }
+
+            try
+            {
+                var db = FirestoreHelper.Database;
+                DocumentReference userDocRef = db.Collection("UserData").Document(_currentUsername);
+                CollectionReference itemsCollection = userDocRef.Collection("Items");
+
+                // Query the Firestore database to get details for the selected product
+                var query = itemsCollection.WhereEqualTo("Name", selectedProductName);
+                var querySnapshot = await query.GetSnapshotAsync();
+
+                if (querySnapshot.Documents.Count > 0)
+                {
+                    var document = querySnapshot.Documents[0];
+                    string itemName = document.GetValue<string>("Name");
+                    string itemPrice = document.GetValue<string>("Price");
+                    string imageUrl = document.GetValue<string>("ImageUrl");
+
+                    // Add the selected product to the DataGridView
+                    dataGridView1.Rows.Add(itemName, itemPrice, quantity, imageUrl);
+                }
+                else
+                {
+                    MessageBox.Show("Selected product not found.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error adding to cart: {ex.Message}");
+            }
         }
     }
 
