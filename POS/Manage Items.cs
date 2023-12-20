@@ -169,7 +169,6 @@ namespace POS
                 MessageBox.Show($"Failed to load image: {ex.Message}");
                 // Log the exception details or handle it accordingly
             }
-
         }
 
         private readonly Dictionary<string, Image> _imageCache = new Dictionary<string, Image>();

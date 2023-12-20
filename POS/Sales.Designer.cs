@@ -35,12 +35,8 @@
             this.profilePicture = new System.Windows.Forms.PictureBox();
             this.cartButton = new System.Windows.Forms.PictureBox();
             this.menuButton = new System.Windows.Forms.PictureBox();
-            this.roundedPanel1 = new POS.RoundedPanel();
             this.allProducts_link = new System.Windows.Forms.Label();
-            this.priceLabel = new System.Windows.Forms.Label();
-            this.prodName = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.productPicture = new System.Windows.Forms.PictureBox();
             this.roundTextbox1 = new POS.RoundTextbox();
             this.roundedPanel2 = new POS.RoundedPanel();
             this.label5 = new System.Windows.Forms.Label();
@@ -64,14 +60,13 @@
             this.accName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dropdownButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
-            this.roundedPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productPicture)).BeginInit();
             this.roundedPanel2.SuspendLayout();
             this.menuDrop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.settingsButton)).BeginInit();
@@ -134,76 +129,31 @@
             this.menuButton.TabStop = false;
             this.menuButton.Click += new System.EventHandler(this.menuButton_Click);
             // 
-            // roundedPanel1
-            // 
-            this.roundedPanel1.BackColor = System.Drawing.Color.White;
-            this.roundedPanel1.Controls.Add(this.allProducts_link);
-            this.roundedPanel1.Controls.Add(this.priceLabel);
-            this.roundedPanel1.Controls.Add(this.prodName);
-            this.roundedPanel1.Controls.Add(this.pictureBox2);
-            this.roundedPanel1.Controls.Add(this.productPicture);
-            this.roundedPanel1.Controls.Add(this.roundTextbox1);
-            this.roundedPanel1.Location = new System.Drawing.Point(22, 75);
-            this.roundedPanel1.Name = "roundedPanel1";
-            this.roundedPanel1.Size = new System.Drawing.Size(447, 242);
-            this.roundedPanel1.TabIndex = 1;
-            // 
             // allProducts_link
             // 
             this.allProducts_link.AutoSize = true;
             this.allProducts_link.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.allProducts_link.ForeColor = System.Drawing.Color.SteelBlue;
-            this.allProducts_link.Location = new System.Drawing.Point(357, 15);
+            this.allProducts_link.Location = new System.Drawing.Point(396, 84);
             this.allProducts_link.Name = "allProducts_link";
             this.allProducts_link.Size = new System.Drawing.Size(73, 15);
             this.allProducts_link.TabIndex = 15;
             this.allProducts_link.Text = "All Products";
             // 
-            // priceLabel
-            // 
-            this.priceLabel.AutoSize = true;
-            this.priceLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.priceLabel.ForeColor = System.Drawing.Color.SteelBlue;
-            this.priceLabel.Location = new System.Drawing.Point(25, 140);
-            this.priceLabel.Name = "priceLabel";
-            this.priceLabel.Size = new System.Drawing.Size(43, 15);
-            this.priceLabel.TabIndex = 14;
-            this.priceLabel.Text = "(price)";
-            // 
-            // prodName
-            // 
-            this.prodName.AutoSize = true;
-            this.prodName.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.prodName.ForeColor = System.Drawing.Color.SteelBlue;
-            this.prodName.Location = new System.Drawing.Point(25, 125);
-            this.prodName.Name = "prodName";
-            this.prodName.Size = new System.Drawing.Size(59, 15);
-            this.prodName.TabIndex = 13;
-            this.prodName.Text = "(product)";
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(118, 14);
+            this.pictureBox2.Location = new System.Drawing.Point(133, 78);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(19, 21);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 12;
             this.pictureBox2.TabStop = false;
             // 
-            // productPicture
-            // 
-            this.productPicture.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.productPicture.Location = new System.Drawing.Point(24, 52);
-            this.productPicture.Name = "productPicture";
-            this.productPicture.Size = new System.Drawing.Size(75, 64);
-            this.productPicture.TabIndex = 11;
-            this.productPicture.TabStop = false;
-            // 
             // roundTextbox1
             // 
             this.roundTextbox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.roundTextbox1.Location = new System.Drawing.Point(15, 12);
+            this.roundTextbox1.Location = new System.Drawing.Point(21, 78);
             this.roundTextbox1.Name = "roundTextbox1";
             this.roundTextbox1.PlaceholderText = "Search item";
             this.roundTextbox1.Size = new System.Drawing.Size(100, 23);
@@ -456,6 +406,15 @@
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.ForeColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(24, 106);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(445, 211);
+            this.flowLayoutPanel1.TabIndex = 17;
+            // 
             // Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -463,16 +422,19 @@
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(718, 444);
             this.Controls.Add(this.menuDrop);
+            this.Controls.Add(this.allProducts_link);
             this.Controls.Add(this.categoryButton5);
             this.Controls.Add(this.categoryButton4);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.categoryButton3);
             this.Controls.Add(this.categoryButton2);
+            this.Controls.Add(this.roundTextbox1);
             this.Controls.Add(this.categoryButton1);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.payButton);
             this.Controls.Add(this.roundedPanel2);
-            this.Controls.Add(this.roundedPanel1);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.flowLayoutPanel1);
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Sales";
@@ -484,10 +446,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).EndInit();
-            this.roundedPanel1.ResumeLayout(false);
-            this.roundedPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.productPicture)).EndInit();
             this.roundedPanel2.ResumeLayout(false);
             this.roundedPanel2.PerformLayout();
             this.menuDrop.ResumeLayout(false);
@@ -498,6 +457,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.receiptButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -508,7 +468,6 @@
         private PictureBox dropdownButton;
         private PictureBox profilePicture;
         private PictureBox cartButton;
-        private RoundedPanel roundedPanel1;
         private RoundedPanel roundedPanel2;
         private RoundedButton payButton;
         private RoundedButton cancelButton;
@@ -518,10 +477,7 @@
         private RoundedButton categoryButton3;
         private RoundedButton categoryButton5;
         private Label allProducts_link;
-        private Label priceLabel;
-        private Label prodName;
         private PictureBox pictureBox2;
-        private PictureBox productPicture;
         private RoundTextbox roundTextbox1;
         private Label label5;
         private Label label4;
@@ -537,5 +493,6 @@
         private Label accName;
         private PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

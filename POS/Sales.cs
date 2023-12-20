@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Google.Cloud.Firestore;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,6 +15,7 @@ namespace POS
     public partial class Sales : Form
     {
         private string _currentUsername;
+        private int pictureCount = 0;
         public Sales(string currentUsername)
         {
             InitializeComponent();
@@ -21,9 +23,133 @@ namespace POS
         }
         bool expand = false;
 
-        private void Sales_Load(object sender, EventArgs e)
+        private async void Sales_Load(object sender, EventArgs e)
         {
+            try
+            {
+                var db = FirestoreHelper.Database;
+                DocumentReference userDocRef = db.Collection("UserData").Document(_currentUsername);
+                CollectionReference itemsCollection = userDocRef.Collection("Items");
+
+                var querySnapshot = await itemsCollection.GetSnapshotAsync();
+                foreach (var document in querySnapshot.Documents)
+                {
+                    string itemName = document.GetValue<string>("Name");
+                    string itemPrice = document.GetValue<string>("Price");
+                    string imageUrl = document.GetValue<string>("ImageUrl");
+
+                    await AddSalesToUI(itemName, itemPrice, imageUrl);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading items: {ex.Message}");
+            }
         }
+
+        public async Task AddSalesToUI(string nameTextBox, string priceTextBox, string imageUrl)
+        {
+            int pictureBoxWidth = 100; // Width of each PictureBox
+            int pictureBoxMargin = 1; // Margin around each PictureBox
+
+            int availableWidth = flowLayoutPanel1.ClientSize.Width; // Available width in the FlowLayoutPanel
+            int totalMargin = pictureBoxMargin * 2; // Total margin (both sides)
+
+            int numberOfColumns = (availableWidth - totalMargin) / (pictureBoxWidth + pictureBoxMargin);
+
+            PictureBox pictureBox = new PictureBox();
+            pictureBox.Width = pictureBoxWidth;
+            pictureBox.Height = 100;
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox.BackColor = Color.Black; // Set the background color to white (blank)
+            pictureBox.BorderStyle = BorderStyle.FixedSingle; // Optional: Add a border to visualize the PictureBox
+
+            Label upperLabel = new Label();
+            upperLabel.Text = "" + nameTextBox;
+            upperLabel.TextAlign = ContentAlignment.MiddleCenter;
+            upperLabel.AutoSize = false;
+            upperLabel.Width = pictureBoxWidth; // Match label width to PictureBox width
+            upperLabel.Height = 20;// Set label height
+            upperLabel.Location = new Point(0, 105);
+            upperLabel.ForeColor = Color.SteelBlue;
+            upperLabel.Font = new Font(upperLabel.Font, FontStyle.Bold);
+
+            Label lowerLabel = new Label();
+            lowerLabel.Text = "P" + priceTextBox;
+            lowerLabel.TextAlign = ContentAlignment.MiddleCenter;
+            lowerLabel.AutoSize = false;
+            lowerLabel.Width = pictureBoxWidth; // Match label width to PictureBox width
+            lowerLabel.Height = 20; // Set label height
+            lowerLabel.Location = new Point(0, 125); // Position label below the upper label
+            lowerLabel.ForeColor = Color.SteelBlue;
+            lowerLabel.Font = new Font(lowerLabel.Font, FontStyle.Bold);
+
+            // Adjust the margin and padding of the PictureBox for spacing
+            pictureBox.Margin = new Padding(pictureBoxMargin); // Add margin to create spacing
+
+            // Create a Panel to hold the PictureBox and Labels
+            Panel itemPanel = new Panel();
+            itemPanel.AutoSize = true;
+            itemPanel.Controls.Add(pictureBox);
+            itemPanel.Controls.Add(upperLabel);
+            itemPanel.Controls.Add(lowerLabel);
+
+            // Add the panel to the main FlowLayoutPanel (flowLayoutPanel1)
+            flowLayoutPanel1.Controls.Add(itemPanel);
+
+            pictureCount++;
+
+            if (pictureCount % numberOfColumns == 0)
+            {
+                flowLayoutPanel1.SetFlowBreak(itemPanel, true); // Start a new row after reaching the calculated number of columns
+            }
+
+            // Load the image asynchronously and set it to the PictureBox
+            try
+            {
+                Image image = await LoadImageAsync(imageUrl);
+                if (image != null)
+                {
+                    pictureBox.Image = image;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to load image: {ex.Message}");
+                // Log the exception details or handle it accordingly
+            }
+        }
+
+        private readonly Dictionary<string, Image> _imageCache = new Dictionary<string, Image>();
+
+        private async Task<Image> LoadImageAsync(string imageUrl)
+        {
+            if (_imageCache.ContainsKey(imageUrl))
+            {
+                return _imageCache[imageUrl];
+            }
+
+            try
+            {
+                using (HttpClient client = new HttpClient())
+                {
+                    byte[] data = await client.GetByteArrayAsync(imageUrl);
+                    using (var stream = new MemoryStream(data))
+                    {
+                        Image image = Image.FromStream(stream);
+                        _imageCache.Add(imageUrl, image);
+                        return image;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to load image: {ex.Message}");
+                return null;
+            }
+        }
+
+        //minor features
         private void timer1_Tick_1(object sender, EventArgs e)
         {
             if (expand == false)
@@ -57,6 +183,7 @@ namespace POS
             manageForm.Show();
         }
     }
+
     //for rounded panels
     class RoundedPanel : Panel
     {

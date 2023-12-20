@@ -354,11 +354,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(712, 444);
+            this.Controls.Add(this.menuDrop);
             this.Controls.Add(this.removeItemLabel);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.menuDrop);
             this.Controls.Add(this.allProducts_link);
             this.Controls.Add(this.roundedPanel2);
             this.Controls.Add(this.label1);
