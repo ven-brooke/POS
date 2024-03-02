@@ -54,7 +54,7 @@ namespace POS
                 // Validate all textboxes
                 if (!IsTextboxFilled(FirstName_input, "First Name") ||
                     !IsTextboxFilled(LastName_input, "Last Name") ||
-                    !IsTextboxFilled(EmailAddress_input, "Email Address") ||
+                    !IsValidEmail(EmailAddress_input) ||
                     !IsTextboxFilled(Username_input, "Username") ||
                     !IsTextboxFilled(SetPassword_input, "Password"))
                 {
@@ -132,7 +132,20 @@ namespace POS
                 return false; // or throw the exception if you want to propagate it
             }
         }
-
+        private bool IsValidEmail(TextBox emailTextbox)
+        {
+            string email = emailTextbox.Text.Trim();
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                MessageBox.Show("Please enter a valid email address.");
+                return false;
+            }
+        }
         private void exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
