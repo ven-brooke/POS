@@ -45,12 +45,23 @@ namespace POS
         {
             try
             {
-                
                 if (!termsCheckbox.Checked)
                 {
                     MessageBox.Show("Please accept the terms and conditions before submitting.");
                     return;
                 }
+
+                // Validate all textboxes
+                if (!IsTextboxFilled(FirstName_input, "First Name") ||
+                    !IsTextboxFilled(LastName_input, "Last Name") ||
+                    !IsTextboxFilled(EmailAddress_input, "Email Address") ||
+                    !IsTextboxFilled(Username_input, "Username") ||
+                    !IsTextboxFilled(SetPassword_input, "Password"))
+                {
+                    MessageBox.Show("Please fill in all required fields.");
+                    return;
+                }
+
                 var db = FirestoreHelper.Database;
                 string username = Username_input.Text.Trim();
                 if (CheckIfUserExists(username))
@@ -60,7 +71,7 @@ namespace POS
                 }
 
                 var data = GetWriteData();
-                
+
                 DocumentReference docRef = db.Collection("UserData").Document(username);
                 await docRef.SetAsync(data);
                 MessageBox.Show("Success!");
@@ -74,6 +85,15 @@ namespace POS
                 Console.WriteLine($"An error occurred in submitButton_Click: {ex.Message}");
                 MessageBox.Show("An error occurred. Please try again");
             }
+        }
+        private bool IsTextboxFilled(TextBox textbox, string fieldName)
+        {
+            if (string.IsNullOrWhiteSpace(textbox.Text))
+            {
+                MessageBox.Show($"Please enter {fieldName}.");
+                return false;
+            }
+            return true;
         }
         private UserData GetWriteData()
         {
