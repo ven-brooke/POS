@@ -37,6 +37,7 @@ namespace POS
                 {
                     string name = nameTextBox.Text;
                     string price = priceTextBox.Text;
+                    int stocks = int.Parse(stockTextBox.Text); // Parse stock from stockTextBox
                     string imageUrl = await UploadImage();
 
                     if (string.IsNullOrEmpty(imageUrl))
@@ -53,12 +54,13 @@ namespace POS
                     {
                         Name = name,
                         Price = price,
-                        ImageUrl = imageUrl
+                        ImageUrl = imageUrl,
+                        Stocks = stocks // Set the value of Stocks property
                     };
 
                     await itemsCollection.AddAsync(item);
 
-                    _Manage_ItemsInstance?.AddItemsToUI(name, price, imageUrl);
+                    _Manage_ItemsInstance?.AddItemsToUI(name, price, imageUrl, stocks);
 
                     MessageBox.Show("Item added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

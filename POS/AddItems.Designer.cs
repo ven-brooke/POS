@@ -35,6 +35,8 @@
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.priceTextBox = new System.Windows.Forms.TextBox();
             this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.stockTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,12 +102,30 @@
             this.pictureBox.TabIndex = 7;
             this.pictureBox.TabStop = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(47, 280);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 15);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Stock:";
+            // 
+            // stockTextBox
+            // 
+            this.stockTextBox.Location = new System.Drawing.Point(98, 276);
+            this.stockTextBox.Name = "stockTextBox";
+            this.stockTextBox.Size = new System.Drawing.Size(191, 23);
+            this.stockTextBox.TabIndex = 9;
+            // 
             // AddItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(338, 415);
+            this.Controls.Add(this.stockTextBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.priceTextBox);
             this.Controls.Add(this.nameTextBox);
@@ -130,5 +150,7 @@
         private TextBox nameTextBox;
         private TextBox priceTextBox;
         private PictureBox pictureBox;
+        private Label label3;
+        private TextBox stockTextBox;
     }
 }

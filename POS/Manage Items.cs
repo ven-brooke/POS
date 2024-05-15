@@ -7,12 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Windows.Forms;
 using Google.Cloud.Firestore;
 using Google.Cloud.Storage.V1;
-using System.Net;
+using System.Net.Http;
+using System.IO;
 
 namespace POS
 {
@@ -97,8 +95,9 @@ namespace POS
                     string itemName = document.GetValue<string>("Name");
                     string itemPrice = document.GetValue<string>("Price");
                     string imageUrl = document.GetValue<string>("ImageUrl");
+                    int stocks = document.GetValue<int>("Stocks"); // Retrieve the number of stocks
 
-                    await AddItemsToUI(itemName, itemPrice, imageUrl); 
+                    await AddItemsToUI(itemName, itemPrice, imageUrl, stocks); // Pass the number of stocks
                 }
             }
             catch (Exception ex)
@@ -107,7 +106,7 @@ namespace POS
             }
         }
 
-        public async Task AddItemsToUI(string nameTextBox, string priceTextBox, string imageUrl)
+        public async Task AddItemsToUI(string nameTextBox, string priceTextBox, string imageUrl, int stocks)
         {
             int pictureBoxWidth = 100; // Width of each PictureBox
             int pictureBoxMargin = 1; // Margin around each PictureBox
@@ -134,15 +133,25 @@ namespace POS
             upperLabel.ForeColor = Color.SteelBlue;
             upperLabel.Font = new Font(upperLabel.Font, FontStyle.Bold);
 
-            Label lowerLabel = new Label();
-            lowerLabel.Text = "P" + priceTextBox;
-            lowerLabel.TextAlign = ContentAlignment.MiddleCenter;
-            lowerLabel.AutoSize = false;
-            lowerLabel.Width = pictureBoxWidth; // Match label width to PictureBox width
-            lowerLabel.Height = 20; // Set label height
-            lowerLabel.Location = new Point(0, 125); // Position label below the upper label
-            lowerLabel.ForeColor = Color.SteelBlue;
-            lowerLabel.Font = new Font(lowerLabel.Font, FontStyle.Bold);
+            Label middleLabel = new Label();
+            middleLabel.Text = "Price: " + priceTextBox;
+            middleLabel.TextAlign = ContentAlignment.MiddleCenter;
+            middleLabel.AutoSize = false;
+            middleLabel.Width = pictureBoxWidth; // Match label width to PictureBox width
+            middleLabel.Height = 20; // Set label height
+            middleLabel.Location = new Point(0, 125); // Position label below the upper label
+            middleLabel.ForeColor = Color.SteelBlue;
+            middleLabel.Font = new Font(middleLabel.Font, FontStyle.Bold);
+
+            Label stockLabel = new Label();
+            stockLabel.Text = "Stocks: " + stocks.ToString(); // Display the number of stocks
+            stockLabel.TextAlign = ContentAlignment.MiddleCenter;
+            stockLabel.AutoSize = false;
+            stockLabel.Width = pictureBoxWidth; // Match label width to PictureBox width
+            stockLabel.Height = 20; // Set label height
+            stockLabel.Location = new Point(0, 145); // Position label below the price label
+            stockLabel.ForeColor = Color.SteelBlue;
+            stockLabel.Font = new Font(stockLabel.Font, FontStyle.Bold);
 
             // Adjust the margin and padding of the PictureBox for spacing
             pictureBox.Margin = new Padding(pictureBoxMargin); // Add margin to create spacing
@@ -152,7 +161,8 @@ namespace POS
             itemPanel.AutoSize = true;
             itemPanel.Controls.Add(pictureBox);
             itemPanel.Controls.Add(upperLabel);
-            itemPanel.Controls.Add(lowerLabel);
+            itemPanel.Controls.Add(middleLabel);
+            itemPanel.Controls.Add(stockLabel);
 
             // Add the panel to the main FlowLayoutPanel (flowLayoutPanel1)
             flowLayoutPanel1.Controls.Add(itemPanel);
@@ -231,6 +241,11 @@ namespace POS
         }
 
         private void manageButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

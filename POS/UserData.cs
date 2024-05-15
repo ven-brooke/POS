@@ -34,5 +34,8 @@ namespace POS
 
         [FirestoreProperty]
         public string ImageUrl { get; set; }
+        
+        [FirestoreProperty]
+        public int Stocks { get; set; }
     }
 }

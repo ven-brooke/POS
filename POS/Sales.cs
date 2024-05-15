@@ -224,28 +224,39 @@ namespace POS
                 CollectionReference itemsCollection = userDocRef.Collection("Items");
 
                 // Query the Firestore database to get details for the selected product
-                var query = itemsCollection.WhereEqualTo("Name", selectedProductName);
-                var querySnapshot = await query.GetSnapshotAsync();
+                Query query = itemsCollection.WhereEqualTo("Name", selectedProductName);
+                QuerySnapshot querySnapshot = await query.GetSnapshotAsync();
 
-                if (querySnapshot.Documents.Count > 0)
+                foreach (DocumentSnapshot document in querySnapshot.Documents)
                 {
-                    var document = querySnapshot.Documents[0];
                     string itemName = document.GetValue<string>("Name");
                     string itemPrice = document.GetValue<string>("Price");
                     string imageUrl = document.GetValue<string>("ImageUrl");
+                    int currentStock = document.GetValue<int>("Stocks"); // Retrieve current stock count
+
+                    // Check if requested quantity exceeds available stock count
+                    if (quantity > currentStock)
+                    {
+                        MessageBox.Show($"Insufficient stock for {selectedProductName}. Available stock: {currentStock}");
+                        return;
+                    }
 
                     // Calculate the total price based on quantity
                     decimal totalPrice = decimal.Parse(itemPrice) * quantity;
 
+                    // Update the stock count in Firestore
+                    await document.Reference.UpdateAsync("Stocks", currentStock - quantity);
+
                     // Add the selected product to the DataGridView
                     dataGridView1.Rows.Add(itemName, itemPrice, quantity, totalPrice, imageUrl);
-                    
+
                     foreach (DataGridViewColumn column in dataGridView1.Columns)
                     {
                         column.DefaultCellStyle.ForeColor = Color.Black;
                     }
                 }
-                else
+
+                if (querySnapshot.Documents.Count == 0)
                 {
                     MessageBox.Show("Selected product not found.");
                 }
