@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Sales));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dropdownButton = new System.Windows.Forms.PictureBox();
-            this.profilePicture = new System.Windows.Forms.PictureBox();
             this.cartButton = new System.Windows.Forms.PictureBox();
             this.menuButton = new System.Windows.Forms.PictureBox();
             this.roundedPanel2 = new POS.RoundedPanel();
@@ -59,8 +57,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.productName_comboBox = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dropdownButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
             this.roundedPanel2.SuspendLayout();
@@ -75,8 +71,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SkyBlue;
-            this.panel1.Controls.Add(this.dropdownButton);
-            this.panel1.Controls.Add(this.profilePicture);
             this.panel1.Controls.Add(this.cartButton);
             this.panel1.Controls.Add(this.menuButton);
             this.panel1.Location = new System.Drawing.Point(-3, -3);
@@ -84,30 +78,10 @@
             this.panel1.Size = new System.Drawing.Size(722, 59);
             this.panel1.TabIndex = 0;
             // 
-            // dropdownButton
-            // 
-            this.dropdownButton.Image = ((System.Drawing.Image)(resources.GetObject("dropdownButton.Image")));
-            this.dropdownButton.Location = new System.Drawing.Point(666, 22);
-            this.dropdownButton.Name = "dropdownButton";
-            this.dropdownButton.Size = new System.Drawing.Size(29, 26);
-            this.dropdownButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.dropdownButton.TabIndex = 3;
-            this.dropdownButton.TabStop = false;
-            // 
-            // profilePicture
-            // 
-            this.profilePicture.Image = ((System.Drawing.Image)(resources.GetObject("profilePicture.Image")));
-            this.profilePicture.Location = new System.Drawing.Point(620, 12);
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(40, 36);
-            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.profilePicture.TabIndex = 2;
-            this.profilePicture.TabStop = false;
-            // 
             // cartButton
             // 
             this.cartButton.Image = ((System.Drawing.Image)(resources.GetObject("cartButton.Image")));
-            this.cartButton.Location = new System.Drawing.Point(564, 15);
+            this.cartButton.Location = new System.Drawing.Point(678, 15);
             this.cartButton.Name = "cartButton";
             this.cartButton.Size = new System.Drawing.Size(31, 33);
             this.cartButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -372,8 +346,6 @@
             this.Text = "Sales";
             this.Load += new System.EventHandler(this.Sales_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dropdownButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).EndInit();
             this.roundedPanel2.ResumeLayout(false);
@@ -394,8 +366,6 @@
 
         private Panel panel1;
         private PictureBox menuButton;
-        private PictureBox dropdownButton;
-        private PictureBox profilePicture;
         private PictureBox cartButton;
         private RoundedPanel roundedPanel2;
         private RoundedButton payButton;

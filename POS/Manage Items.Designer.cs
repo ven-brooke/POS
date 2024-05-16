@@ -38,8 +38,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label1 = new System.Windows.Forms.Label();
-            this.dropdownButton = new System.Windows.Forms.PictureBox();
-            this.profilePicture = new System.Windows.Forms.PictureBox();
             this.cartButton = new System.Windows.Forms.PictureBox();
             this.menuButton = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -52,8 +50,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.manageButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiptButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dropdownButton)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).BeginInit();
             this.panel1.SuspendLayout();
@@ -140,30 +136,10 @@
             this.label1.TabIndex = 16;
             this.label1.Text = "My Products";
             // 
-            // dropdownButton
-            // 
-            this.dropdownButton.Image = ((System.Drawing.Image)(resources.GetObject("dropdownButton.Image")));
-            this.dropdownButton.Location = new System.Drawing.Point(675, 19);
-            this.dropdownButton.Name = "dropdownButton";
-            this.dropdownButton.Size = new System.Drawing.Size(29, 34);
-            this.dropdownButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.dropdownButton.TabIndex = 3;
-            this.dropdownButton.TabStop = false;
-            // 
-            // profilePicture
-            // 
-            this.profilePicture.Image = ((System.Drawing.Image)(resources.GetObject("profilePicture.Image")));
-            this.profilePicture.Location = new System.Drawing.Point(629, 9);
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(40, 44);
-            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.profilePicture.TabIndex = 2;
-            this.profilePicture.TabStop = false;
-            // 
             // cartButton
             // 
             this.cartButton.Image = ((System.Drawing.Image)(resources.GetObject("cartButton.Image")));
-            this.cartButton.Location = new System.Drawing.Point(592, 12);
+            this.cartButton.Location = new System.Drawing.Point(688, 12);
             this.cartButton.Name = "cartButton";
             this.cartButton.Size = new System.Drawing.Size(31, 41);
             this.cartButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -185,8 +161,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SkyBlue;
-            this.panel1.Controls.Add(this.dropdownButton);
-            this.panel1.Controls.Add(this.profilePicture);
             this.panel1.Controls.Add(this.cartButton);
             this.panel1.Controls.Add(this.menuButton);
             this.panel1.Location = new System.Drawing.Point(-19, 0);
@@ -253,8 +227,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.manageButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiptButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dropdownButton)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cartButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.menuButton)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -272,8 +244,6 @@
         private PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
         private Label label1;
-        private PictureBox dropdownButton;
-        private PictureBox profilePicture;
         private PictureBox cartButton;
         private PictureBox menuButton;
         private Panel panel1;

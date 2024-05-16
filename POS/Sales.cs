@@ -306,6 +306,25 @@ namespace POS
 
         private async void payButton_Click(object sender, EventArgs e)
         {
+            // Check if the DataGridView contains items
+            bool hasItems = dataGridView1.Rows.Cast<DataGridViewRow>().Any(row =>
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Value != null && !string.IsNullOrEmpty(cell.Value.ToString()))
+                    {
+                        return true; // Found a non-empty cell, so the row contains data
+                    }
+                }
+                return false; // All cells in the row are empty
+            });
+
+            if (!hasItems)
+            {
+                MessageBox.Show("There are no items in the cart.", "Empty Cart", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Exit the method without generating a receipt
+            }
+
             // Generate and present the receipt
             GenerateReceipt();
 
