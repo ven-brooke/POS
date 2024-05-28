@@ -37,7 +37,26 @@ namespace POS
                 {
                     string name = nameTextBox.Text;
                     string price = priceTextBox.Text;
-                    int stocks = int.Parse(stockTextBox.Text); // Parse stock from stockTextBox
+
+                    if (string.IsNullOrEmpty(name))
+                    {
+                        MessageBox.Show("Name cannot be empty.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    if (string.IsNullOrEmpty(price))
+                    {
+                        MessageBox.Show("Price cannot be empty.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    int stocks;
+                    if (!int.TryParse(stockTextBox.Text, out stocks))
+                    {
+                        MessageBox.Show("Invalid stock value.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
                     string imageUrl = await UploadImage();
 
                     if (string.IsNullOrEmpty(imageUrl))
@@ -55,7 +74,7 @@ namespace POS
                         Name = name,
                         Price = price,
                         ImageUrl = imageUrl,
-                        Stocks = stocks // Set the value of Stocks property
+                        Stocks = stocks
                     };
 
                     await itemsCollection.AddAsync(item);
