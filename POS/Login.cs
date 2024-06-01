@@ -37,29 +37,57 @@ namespace POS
             string username = usernameInput.Text.Trim();
             string password = passwordInput.Text.Trim();
 
-            var db = FirestoreHelper.Database;
-            DocumentReference docRef = db.Collection("UserData").Document(username);
-            UserData data = docRef.GetSnapshotAsync().Result.ConvertTo<UserData>();
-
-            if (data != null)
+            // Check if the username or password textbox is empty
+            if (string.IsNullOrEmpty(username))
             {
-                if (password == data.Password)
+                MessageBox.Show("Please enter your username.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(password))
+            {
+                MessageBox.Show("Please enter your password.");
+                return;
+            }
+
+            try
+            {
+                var db = FirestoreHelper.Database;
+                DocumentReference docRef = db.Collection("UserData").Document(username);
+                DocumentSnapshot snapshot = await docRef.GetSnapshotAsync();
+
+                if (snapshot.Exists)
                 {
-                    MessageBox.Show("Login Success");
-                    Hide();
-                    // Proceed to another form (ex: Sales form)
-                    Sales sales = new Sales(username);
-                    sales.ShowDialog();
-                    Close();
+                    UserData data = snapshot.ConvertTo<UserData>();
+                    if (data != null)
+                    {
+                        if (password == data.Password)
+                        {
+                            MessageBox.Show("Login Success");
+                            Hide();
+                            // Proceed to another form (ex: Sales form)
+                            Sales sales = new Sales(username);
+                            sales.ShowDialog();
+                            Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Login Failed: Invalid username or password.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Login Failed: User data is null.");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Login Failed: Invalid username or password.");
+                    MessageBox.Show("Login Failed: User does not exist.");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Login Failed: User does not exist.");
+                MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
 
